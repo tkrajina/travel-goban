@@ -65,7 +65,7 @@ module board_stones() {
 
 module hoshi(col, row) {
     translate([col*diameter, row*diameter, 0])
-        cylinder(5, diameter/6, diameter/6);
+        cylinder(5, 1.5, 1.5);
 }
 
 module goban_hoshi() {
