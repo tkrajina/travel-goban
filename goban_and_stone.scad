@@ -1,4 +1,4 @@
-$fn = 50;
+$fn = 20;
 
 diameter = 18;
 height = 6;
@@ -113,9 +113,5 @@ module board() {
     }
 }
 
-/*
-board();
-
-translate([-20, -20, 0])
-    stone();
-*/
+//board();
+//stone();
