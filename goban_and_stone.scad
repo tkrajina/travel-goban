@@ -113,9 +113,9 @@ module board() {
     }
 }
 
+/*
 board();
 
-/*
 translate([-20, -20, 0])
     stone();
 */
