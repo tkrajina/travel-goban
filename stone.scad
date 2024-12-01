@@ -27,7 +27,7 @@ module stone() {
 }
 
 //stone();
-module stones() {
+module board_stones() {
     for (i = [0 : 1 : n-1])
     {
         for (j = [0 : 1 : n-1])
@@ -43,22 +43,44 @@ module stones() {
     }
 }
 
-difference() {
-    hull() {
-        board_height = height /3;
-        radius = diameter * .75;
-        cylinder(board_height, radius, radius);
-        translate([(n-1)*diameter, 0, 0])
-            cylinder(board_height, radius, radius);
-        translate([(n-1)*diameter, (n-1)*diameter, 0])
-            cylinder(board_height, radius, radius);
-        translate([(n-1)*diameter, 0, 0])
-            cylinder(board_height, radius, radius);
-        translate([0, (n-1)*diameter, 0])
-            cylinder(board_height, radius, radius);
+module grid() {
+    w = 1;
+    for (i = [0 : 1 : n-1])
+    {
+        translate([i*diameter - w/2, -w/2, 0])
+            cube([w, (n-1)*diameter + w, w]);
+        translate([-w/2, i*diameter-w/2, 0])
+            cube([(n-1)*diameter, w, w]);
     }
-    stones();
 }
 
+module board() {
+    difference() {
+        hull() {
+            board_height = height /3;
+            radius = diameter * .75;
+            cylinder(board_height, radius, radius);
+            translate([(n-1)*diameter, 0, 0])
+                cylinder(board_height, radius, radius);
+            translate([(n-1)*diameter, (n-1)*diameter, 0])
+                cylinder(board_height, radius, radius);
+            translate([(n-1)*diameter, 0, 0])
+                cylinder(board_height, radius, radius);
+            translate([0, (n-1)*diameter, 0])
+                cylinder(board_height, radius, radius);
+        }
+        union() {
+            translate([0, 0, 1])
+                board_stones();
+            translate([0, 0, 0.6])
+                grid();
+        }
+    }
+}
+
+board();
+
+/*
 translate([-20, -20, 0])
     stone();
+*/
