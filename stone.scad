@@ -2,7 +2,27 @@ $fn = 50;
 
 diameter = 18;
 height = 6;
-n = 3;
+n = 9;
+
+hoshi19 = [
+    [3, 3], [3, 9], [3, 15],
+    [9, 3], [9, 9], [9, 15],
+    [15, 3], [15, 9], [15, 15],
+];
+hoshi13 = [
+    [3, 3], [3, 9],
+    [6, 6],
+    [9, 3], [9, 9],
+];
+hoshi9 = [
+    [2, 2], [2, 6],
+    [6, 2], [6, 6],
+];
+hoshi3 = [ // For testing
+    [1, 1]
+];
+
+hoshi = n == 19 ? hoshi19 : n == 13 ? hoshi13 : n == 9 ? hoshi9 : n == 3 || n == 2 || n == 1 ? hoshi3 : n == 2 ? hoshi3 : [];
 
 module stone() {
     translate([0, 0, height/3])
@@ -43,8 +63,20 @@ module board_stones() {
     }
 }
 
+module hoshi(col, row) {
+    translate([col*diameter, row*diameter, 0])
+        cylinder(5, diameter/6, diameter/6);
+}
+
+module goban_hoshi() {
+echo(hoshi);
+    for(v=[0:len(hoshi)-1]) {
+        hoshi(hoshi[v][0], hoshi[v][1]);
+    }
+}
+
 module grid() {
-    w = 1;
+    w = .5;
     for (i = [0 : 1 : n-1])
     {
         translate([i*diameter - w/2, -w/2, 0])
@@ -74,6 +106,9 @@ module board() {
                 board_stones();
             translate([0, 0, 0.6])
                 grid();
+            translate([0, 0, 0.6])
+                goban_hoshi();
+
         }
     }
 }
