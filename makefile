@@ -13,8 +13,17 @@ endif
 .PHONY: stl
 stl: clean
 	mkdir -p stl
-	openscad --backend manifold -D "what=\"stone\"" -D "\$$fn=50" -D "diameter=$(DIAMETER)" -D "height=$(HEIGHT)" -D "n=$(N)" -o "stl/stone_$(DIAMETER)_$(HEIGHT)_$(N).stl" goban_and_stone.scad
-	openscad --backend manifold -D "what=\"goban\"" -D "\$$fn=50" -D "diameter=$(DIAMETER)" -D "height=$(HEIGHT)" -D "n=$(N)" -o "stl/goban_$(DIAMETER)_$(HEIGHT)_$(N).stl" goban_and_stone.scad
+	for o in stone goban; do \
+		echo $$o; \
+		openscad --backend manifold \
+			-D "what=\"$$o\"" \
+			-D "\$$fn=50" \
+			-D "diameter=$(DIAMETER)" \
+			-D "height=$(HEIGHT)" \
+			-D "n=$(N)" \
+			-o "stl/$${o}_$(DIAMETER)_$(HEIGHT)_$(N).stl" \
+			goban_and_stone.scad ; \
+	done
 	echo "Written in stl/"
 
 .PHONY: clean
