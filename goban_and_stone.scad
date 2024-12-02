@@ -4,6 +4,8 @@ diameter = 18;
 height = 6;
 n = 9;
 
+what = "";
+
 hoshi19 = [
     [3, 3], [3, 9], [3, 15],
     [9, 3], [9, 9], [9, 15],
@@ -113,5 +115,15 @@ module board() {
     }
 }
 
-//board();
-//stone();
+echo("what=", what);
+if (what == "stone") {
+    echo("rendering stone");
+    stone();
+} else if (what == "goban") {
+    echo("rendering goban");
+    board();
+} else {
+    board();
+    translate([0, 0, height * 1.25])
+        stone();
+}
