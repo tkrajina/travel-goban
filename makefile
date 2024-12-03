@@ -10,14 +10,26 @@ ifndef N
 	override N=9
 endif
 
+ifndef FN
+	override FN=50
+endif
+
 .PHONY: stl
 stl: clean
 	mkdir -p stl
+	for o in box lid; do \
+		echo $$o; \
+		openscad --backend manifold \
+			-D "what=\"$$o\"" \
+			-D "\$$fn=$(FN)" \
+			-o "stl/$${o}.stl" \
+			box.scad ; \
+	done
 	for o in stone goban; do \
 		echo $$o; \
 		openscad --backend manifold \
 			-D "what=\"$$o\"" \
-			-D "\$$fn=50" \
+			-D "\$$fn=$(FN)" \
 			-D "diameter=$(DIAMETER)" \
 			-D "height=$(HEIGHT)" \
 			-D "n=$(N)" \
@@ -28,4 +40,4 @@ stl: clean
 
 .PHONY: clean
 clean:
-	rm -f stl/*
+	rm -f stl/*.stl
