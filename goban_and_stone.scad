@@ -1,4 +1,4 @@
-$fn = 50;
+$fn = $preview ? 20 : 60;
 
 diameter = 18;
 height = 6;

@@ -1,4 +1,4 @@
-//$fn = 10;
+$fn = $preview ? 30 : 120;
 
 thickness = 1.5;
 
