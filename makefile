@@ -10,10 +10,6 @@ ifndef N
 	override N=9
 endif
 
-ifndef FN
-	override FN=50
-endif
-
 ifndef ROWS
 	override ROWS=9
 endif
@@ -23,19 +19,17 @@ ifndef COLS
 endif
 
 .PHONY: stl
-stl: clean
+stl:
 	mkdir -p stl
 	for o in box lid; do \
 		openscad --backend manifold \
 			-D "what=\"$$o\"" \
-			-D "\$$fn=$(FN)" \
 			-o "stl/$${o}.stl" \
 			box.scad ; \
 	done
 	for o in stone goban; do \
 		openscad --backend manifold \
 			-D "what=\"$$o\"" \
-			-D "\$$fn=$(FN)" \
 			-D "diameter=$(DIAMETER)" \
 			-D "height=$(HEIGHT)" \
 			-D "n=$(N)" \
@@ -48,7 +42,6 @@ stl: clean
 stones-grid:
 	openscad --backend manifold \
 		-D "what=\"stones_grid\"" \
-		-D "\$$fn=$(FN)" \
 		-D "diameter=$(DIAMETER)" \
 		-D "height=$(HEIGHT)" \
 		-D "n=$(N)" \
@@ -57,6 +50,6 @@ stones-grid:
 		-o "stl/stones_grid_$(ROWS)x$(COLS)_$(DIAMETER)_$(HEIGHT)_$(N).stl" \
 		goban_and_stone.scad ; \
 
-.PHONY: clean
-clean:
+.PHONY: clean-stl
+clean-stl:
 	rm -f stl/*.stl
