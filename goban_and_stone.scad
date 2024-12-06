@@ -92,7 +92,7 @@ module board() {
     difference() {
         hull() {
             board_height = height /3;
-            radius = diameter * .75;
+            radius = diameter / 2 + 2;
             cylinder(board_height, radius, radius);
             translate([(n-1)*diameter, 0, 0])
                 cylinder(board_height, radius, radius);
