@@ -1,4 +1,4 @@
-$fn = 20;
+$fn = 50;
 
 diameter = 18;
 height = 6;
@@ -115,13 +115,29 @@ module board() {
     }
 }
 
-echo("what=", what);
+module stones_grid(rows, cols) {
+    d = diameter + 1;
+    for (row = [0 : rows-1]) {
+        for (col = [0 : cols-1]) {
+            v = sqrt(pow(d, 2) - pow(d/2, 2));
+            h = d / 4;
+            translate([row*d+(col%2==0?-1:1)*h, col*v, 0])
+                stone();
+        }
+    }
+}
+
+rows = 5;
+cols = 5;
+
 if (what == "stone") {
     echo("rendering stone");
     stone();
 } else if (what == "goban") {
     echo("rendering goban");
     board();
+} else if (what == "stones_grid") {
+    stones_grid(rows, cols);
 } else {
     board();
     translate([0, 0, height * 1.25])
