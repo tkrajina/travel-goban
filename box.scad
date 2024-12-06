@@ -32,6 +32,10 @@ module box() {
         }
     translate([0, 0, (height-10)/2])
         cube([thickness, width, height-10], true);
+    translate([0, width/2-1/2, (height)/2])
+        cube([thickness, 1, height], true);
+    translate([0, -width/2+1/2, (height)/2])
+        cube([thickness, 1, height], true);
 }
 
 module lid() {
