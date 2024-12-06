@@ -12,9 +12,19 @@ STLs can be downloaded here: <https://makerworld.com/en/models/854424>
 
 Download OpenSCAD <https://openscad.org/downloads.html>, if possible use one of the snapshots (OpenSCAD-2024.12.\*).
 
-Clone this directory and:
+Install solidpython2
+
+    pip install solidpython2
+
+Compile openscad files:
 
     make
+
+`.scad` files are generated in `scad/`.
+
+Export to stl:
+
+    make stl
 
 STLs will be generated int he `stl/` directory.
 

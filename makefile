@@ -1,40 +1,14 @@
-ifndef DIAMETER
-	override DIAMETER=18
-endif
-
-ifndef HEIGHT
-	override HEIGHT=6
-endif
-
-ifndef N
-	override N=9
-endif
-
-ifndef ROWS
-	override ROWS=9
-endif
-
-ifndef COLS
-	override COLS=10
-endif
+.PHONY: build
+build: clean-scad
+	ls *py | while read f; do \
+		python "$$f" ; \
+	done
 
 .PHONY: stl
-stl:
+stl: clean-stl
 	mkdir -p stl
-	for o in box lid; do \
-		openscad --backend manifold \
-			-D "what=\"$$o\"" \
-			-o "stl/$${o}.stl" \
-			box.scad ; \
-	done
-	for o in stone goban; do \
-		openscad --backend manifold \
-			-D "what=\"$$o\"" \
-			-D "diameter=$(DIAMETER)" \
-			-D "height=$(HEIGHT)" \
-			-D "n=$(N)" \
-			-o "stl/$${o}_$(DIAMETER)_$(HEIGHT)_$(N).stl" \
-			goban_and_stone.scad ; \
+	for f in scad/*.scad; do \
+		openscad --backend manifold -o "stl/$$(basename $$f .scad).stl" "$$f" ; \
 	done
 	echo "Written in stl/"
 
@@ -49,6 +23,10 @@ stones-grid:
 		-D "cols=$(COLS)" \
 		-o "stl/stones_grid_$(ROWS)x$(COLS)_$(DIAMETER)_$(HEIGHT)_$(N).stl" \
 		goban_and_stone.scad ; \
+
+.PHONY: clean-scad
+clean-scad:
+	-rm scad/*
 
 .PHONY: clean-stl
 clean-stl:
