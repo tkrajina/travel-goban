@@ -28,13 +28,17 @@ Export to stl:
 
 STLs will be generated int he `stl/` directory.
 
-By default, a 9x9 table is generated, you can export 13x13 with:
+By default, a 9x9 table is generated, you can export (for example) 13x13 with:
 
     N=13 make
 
 Stones have a diameter of 18mm and height 6mm. You can change that with:
 
     DIAMETER=20 HEIGHT=7 make
+
+OR combine them with:
+
+    N=19 DIAMETER=20 HEIGHT=7 make
 
 ## License
 
