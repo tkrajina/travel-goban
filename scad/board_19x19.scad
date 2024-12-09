@@ -1,4 +1,5 @@
-$fn = $preview ? 20 : 60;difference() {
+$fn = $preview ? 20 : 40;
+difference() {
 	hull() {
 		cylinder(h = 2.5, r1 = 11.0, r2 = 11.0);
 		translate(v = [324, 0, 0]) {

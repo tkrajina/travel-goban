@@ -1,4 +1,5 @@
-$fn = $preview ? 20 : 60;difference() {
+$fn = $preview ? 20 : 40;
+difference() {
 	union() {
 		intersection() {
 			translate(v = [11.0, 11.0, 0]) {

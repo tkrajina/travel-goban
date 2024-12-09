@@ -75,5 +75,7 @@ def lid():
 		)
 	)
 
-s2.scad_render_to_file(box(), "box.scad", out_dir="scad", file_header="$fn = $preview ? 30 : 120;")
-s2.scad_render_to_file(lid(), "lid.scad", out_dir="scad", file_header="$fn = $preview ? 30 : 120;")
+fn_header = "$fn = $preview ? 20 : 80;\n"
+
+s2.scad_render_to_file(box(), "box.scad", out_dir="scad", file_header=fn_header)
+s2.scad_render_to_file(lid(), "lid.scad", out_dir="scad", file_header=fn_header)

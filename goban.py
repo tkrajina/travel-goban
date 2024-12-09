@@ -133,10 +133,13 @@ def hook():
 	return hook.translate([0, 0, 1])
 
 # s2.scad_render_to_file(hook(), "_hook.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
+
+fn_header = "$fn = $preview ? 20 : 40;\n"
+
 for n in [3, 9, 13, 19]:
-	s2.scad_render_to_file(board(n), f"board_{n}x{n}.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
-	s2.scad_render_to_file(board(n, board_height=3), f"board_{n}x{n}_thick.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
+	s2.scad_render_to_file(board(n), f"board_{n}x{n}.scad", out_dir="scad", file_header=fn_header)
+	s2.scad_render_to_file(board(n, board_height=3), f"board_{n}x{n}_thick.scad", out_dir="scad", file_header=fn_header)
 for n in [5, 19]:
-	s2.scad_render_to_file(quarter_board(n), f"board_{n}x{n}_assemble.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
-s2.scad_render_to_file(stone(), "stone.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
-s2.scad_render_to_file(stones_grid(stones_grid_cols, stones_grid_rows), f"stones_grid_{stones_grid_cols}x{stones_grid_rows}.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
+	s2.scad_render_to_file(quarter_board(n), f"board_{n}x{n}_assemble.scad", out_dir="scad", file_header=fn_header)
+s2.scad_render_to_file(stone(), "stone.stl", out_dir="scad", file_header=fn_header)
+s2.scad_render_to_file(stones_grid(stones_grid_cols, stones_grid_rows), f"stones_grid_{stones_grid_cols}x{stones_grid_rows}.scad", out_dir="scad", file_header=fn_header)

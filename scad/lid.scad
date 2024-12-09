@@ -1,4 +1,5 @@
-$fn = $preview ? 30 : 120;union() {
+$fn = $preview ? 20 : 80;
+union() {
 	translate(v = [0, 0, 3.0]) {
 		difference() {
 			difference() {
