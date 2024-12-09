@@ -10,7 +10,7 @@ height = int(os.environ.get("HEIGHT", 6))
 around = 2
 
 stones_grid_rows = int(os.environ.get("ROWS", 10))
-stones_grid_cols = int(os.environ.get("COLS", 9))
+stones_grid_cols = int(os.environ.get("COLS", 10))
 
 hoshi19: List[List[int]] = [
     [3, 3], [3, 9], [3, 15],
@@ -132,11 +132,11 @@ def hook():
 		- s2.cylinder(2.5, 4, 4, center=True).translate([-6, 0, 0])
 	return hook.translate([0, 0, 1])
 
-s2.scad_render_to_file(hook(), "_hook.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
+# s2.scad_render_to_file(hook(), "_hook.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
 for n in [3, 9, 13, 19]:
 	s2.scad_render_to_file(board(n), f"board_{n}x{n}.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
 	s2.scad_render_to_file(board(n, board_height=3), f"board_{n}x{n}_thick.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
 for n in [5, 19]:
 	s2.scad_render_to_file(quarter_board(n), f"board_{n}x{n}_assemble.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
 s2.scad_render_to_file(stone(), "stone.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
-s2.scad_render_to_file(stones_grid(stones_grid_cols, stones_grid_rows), "stones_grid.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
+s2.scad_render_to_file(stones_grid(stones_grid_cols, stones_grid_rows), f"stones_grid_{stones_grid_cols}x{stones_grid_rows}.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")

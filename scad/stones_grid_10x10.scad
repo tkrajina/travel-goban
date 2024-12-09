@@ -1889,4 +1889,214 @@ $fn = $preview ? 20 : 60;union() {
 			}
 		}
 	}
+	translate(v = [175.75, 0.0, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [166.25, 16.454482671904334, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [175.75, 32.90896534380867, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [166.25, 49.363448015713004, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [175.75, 65.81793068761733, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [166.25, 82.27241335952166, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [175.75, 98.72689603142601, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [166.25, 115.18137870333034, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [175.75, 131.63586137523467, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
+	translate(v = [166.25, 148.090344047139, 0]) {
+		translate(v = [0, 0, 2.0]) {
+			union() {
+				difference() {
+					scale(v = [9.0, 9.0, 4.0]) {
+						sphere(r = 1);
+					}
+					translate(v = [0, 0, -6]) {
+						cylinder(h = 6, r1 = 18, r2 = 18);
+					}
+				}
+				difference() {
+					minkowski() {
+						cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
+						sphere(r = 2.0);
+					}
+					cylinder(h = 6, r1 = 18, r2 = 18);
+				}
+			}
+		}
+	}
 }

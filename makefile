@@ -5,10 +5,11 @@ build: clean-scad
 	done
 
 .PHONY: stl
-stl: clean-stl
+stl: clean-stl build
 	mkdir -p stl
 	for f in scad/*.scad; do \
-		echo $f; \
+		echo "----------------------------------------------------------------------------------------------------"; \
+		echo $$f; \
 		openscad --backend manifold -o "stl/$$(basename $$f .scad).stl" "$$f"; \
 	done
 	echo "Written in stl/"

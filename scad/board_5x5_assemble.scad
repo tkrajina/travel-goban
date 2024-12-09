@@ -4,19 +4,19 @@ $fn = $preview ? 20 : 60;difference() {
 			translate(v = [11.0, 11.0, 0]) {
 				difference() {
 					hull() {
-						cylinder(h = 7.5, r1 = 11.0, r2 = 11.0);
+						cylinder(h = 4.5, r1 = 11.0, r2 = 11.0);
 						translate(v = [72, 0, 0]) {
-							cylinder(h = 7.5, r1 = 11.0, r2 = 11.0);
+							cylinder(h = 4.5, r1 = 11.0, r2 = 11.0);
 						}
 						translate(v = [72, 72, 0]) {
-							cylinder(h = 7.5, r1 = 11.0, r2 = 11.0);
+							cylinder(h = 4.5, r1 = 11.0, r2 = 11.0);
 						}
 						translate(v = [0, 72, 0]) {
-							cylinder(h = 7.5, r1 = 11.0, r2 = 11.0);
+							cylinder(h = 4.5, r1 = 11.0, r2 = 11.0);
 						}
 					}
 					union() {
-						translate(v = [0, 0, 6.0]) {
+						translate(v = [0, 0, 3.0]) {
 							union() {
 								translate(v = [0, 0, 1]) {
 									minkowski() {
@@ -620,7 +620,7 @@ $fn = $preview ? 20 : 60;difference() {
 								}
 							}
 						}
-						translate(v = [0, 0, 5.7]) {
+						translate(v = [0, 0, 2.7]) {
 							union() {
 								translate(v = [-0.375, -0.375, 0]) {
 									cube(size = [0.75, 72.75, 10]);
@@ -654,7 +654,7 @@ $fn = $preview ? 20 : 60;difference() {
 								}
 							}
 						}
-						translate(v = [0, 0, 5.7]) {
+						translate(v = [0, 0, 2.7]) {
 							union();
 						}
 					}
