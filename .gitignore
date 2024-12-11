@@ -1,4 +1,5 @@
 *.stl
+stl/*
 .DS_Store
 *.3mf
 .vscode

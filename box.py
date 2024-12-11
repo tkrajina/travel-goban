@@ -77,5 +77,19 @@ def lid():
 
 fn_header = "$fn = $preview ? 20 : 80;\n"
 
-s2.scad_render_to_file(box(), "box.scad", out_dir="scad", file_header=fn_header)
-s2.scad_render_to_file(lid(), "lid.scad", out_dir="scad", file_header=fn_header)
+all_boxes = s2.cube(0)
+for n in [9, 13, 19]:
+	scale = 1
+	if n > 9:
+		scale = (n ** 2 / 9 ** 2) ** (1 / 3)
+		scale *= 1.05
+	print("scale=", scale)
+
+	box_n = box().scale(scale)
+	lid_n = lid().scale(scale)
+	s2.scad_render_to_file(box_n, f"{n}x{n}_box.scad", out_dir="scad", file_header=fn_header)
+	s2.scad_render_to_file(lid_n, f"{n}x{n}_lid.scad", out_dir="scad", file_header=fn_header)
+
+	all_boxes += box_n + lid_n.translate([0, 150, 0])
+
+# s2.scad_render_to_file(all_boxes, f"_all_boxes.scad", out_dir="scad", file_header=fn_header)

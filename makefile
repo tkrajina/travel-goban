@@ -13,6 +13,9 @@ stl: clean-stl build
 		openscad --backend manifold -o "stl/$$(basename $$f .scad).stl" "$$f"; \
 	done
 	echo "Written in stl/"
+	cd stl && zip 9x9.zip 9x9*.stl stone.stl
+	cd stl && zip 13x13.zip 13x13*.stl stone.stl
+	cd stl && zip 19x19.zip 19x19*.stl stone.stl
 
 .PHONY: clean-scad
 clean-scad:
@@ -20,4 +23,4 @@ clean-scad:
 
 .PHONY: clean-stl
 clean-stl:
-	rm -f stl/*.stl
+	rm -Rf stl/*
