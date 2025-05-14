@@ -17,6 +17,10 @@ stl: clean-stl build
 	cd stl && zip 13x13.zip 13x13*.stl stone.stl
 	cd stl && zip 19x19.zip 19x19*.stl stone.stl
 
+.PHONY:
+clean: clean-scad clean-stl
+	echo "OK"
+
 .PHONY: clean-scad
 clean-scad:
 	-rm scad/*
