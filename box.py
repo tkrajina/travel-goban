@@ -7,15 +7,16 @@ length = 100
 width = 60
 height = 45
 
+lid_delimiter = 10
 lid_height = 12;
 
 def box_shape():
 	return s2.hull()(
 		s2.translate([-(length-width)/2, 0, 0])(
-			s2.cylinder(height+10, width/2, width/2)
+			s2.cylinder(height+lid_delimiter, width/2, width/2)
 		),
 		s2.translate([+(length-width)/2, 0, 0])(
-			s2.cylinder(height+10, width/2, width/2)
+			s2.cylinder(height+lid_delimiter, width/2, width/2)
 		)
 	)
 
@@ -31,8 +32,8 @@ def box():
 		s2.translate([0, 0, height-.1])(
 			s2.cylinder(100, 100, 100)
 		),
-		s2.translate([0, 0, (height-10)/2])(
-			s2.cube([thickness, width, height-10], True)
+		s2.translate([0, 0, (height-lid_delimiter)/2])(
+			s2.cube([thickness, width, height-lid_delimiter], True)
 		),
 		s2.translate([0, width/2-1/2, (height)/2])(
 			s2.cube([thickness, 1, height], True)
@@ -43,7 +44,7 @@ def box():
 	)
 	return s2.union()(
 		shell,
-        s2.cube([thickness, width, height-10], True).translate([0, 0, (height-10)/2]),
+        s2.cube([thickness, width, height-lid_delimiter], True).translate([0, 0, (height-lid_delimiter)/2]),
 		s2.cube([thickness, 1, height], True).translate([0, width/2-1/2, (height)/2]),
 		s2.cube([thickness, 1, height], True).translate([0, -width/2+1/2, (height)/2])
 	)
@@ -70,8 +71,8 @@ def lid():
 	)
 	return s2.union()(
 		shell,
-		s2.translate([0, 0, 5 + thickness - .5])(
-			s2.cube([thickness * 1.5, width - thickness*2, 10], True)
+		s2.translate([0, 0, lid_delimiter/2 + thickness - .5])(
+			s2.cube([thickness * 1.5, width - thickness*2, lid_delimiter], True)
 		)
 	)
 
