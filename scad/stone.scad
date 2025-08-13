@@ -1,20 +1,20 @@
-$fn = $preview ? 20 : 40;
-translate(v = [0, 0, 2.0]) {
+$fn = $preview ? 20 : 60;
+translate(v = [0, 0, 2.6666666666666665]) {
 	union() {
 		difference() {
-			scale(v = [9.0, 9.0, 4.0]) {
+			scale(v = [10.0, 10.0, 5.333333333333333]) {
 				sphere(r = 1);
 			}
-			translate(v = [0, 0, -6]) {
-				cylinder(h = 6, r1 = 18, r2 = 18);
+			translate(v = [0, 0, -8]) {
+				cylinder(h = 8, r1 = 20, r2 = 20);
 			}
 		}
 		difference() {
 			minkowski() {
-				cylinder(h = 0.01, r1 = 7.0, r2 = 7.0);
-				sphere(r = 2.0);
+				cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
+				sphere(r = 2.6666666666666665);
 			}
-			cylinder(h = 6, r1 = 18, r2 = 18);
+			cylinder(h = 8, r1 = 20, r2 = 20);
 		}
 	}
 }

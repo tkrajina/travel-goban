@@ -4,8 +4,8 @@ import os
 
 from typing import *
 
-diameter = int(os.environ.get("DIAMETER", 18))
-height = int(os.environ.get("HEIGHT", 6))
+diameter = int(os.environ.get("DIAMETER", 20))
+height = int(os.environ.get("HEIGHT", 8))
 
 around = 2
 
@@ -134,7 +134,7 @@ def hook():
 
 # s2.scad_render_to_file(hook(), "_hook.scad", out_dir="scad", file_header="$fn = $preview ? 20 : 60;")
 
-fn_header = "$fn = $preview ? 20 : 40;\n"
+fn_header = "$fn = $preview ? 20 : 60;\n"
 
 for n in [9, 13, 19]:
 	s2.scad_render_to_file(board(n), f"{n}x{n}_board.scad", out_dir="scad", file_header=fn_header)
