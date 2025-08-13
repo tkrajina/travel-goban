@@ -60,7 +60,7 @@ def stone():
 
 def hoshi(col: int, row: int):
 	return s2.translate([col*diameter, row*diameter, 0])(
-		s2.cylinder(5, 1.5, 1.5)
+		s2.cylinder(20, 1.5, 1.5)
 	)
 
 def goban_hoshi(n: int):
@@ -93,7 +93,7 @@ def stones_grid(rows, cols):
 
 def board(n: int, board_height=1, hole_depth=None):
 	if not hole_depth:
-		hole_depth = height / 4
+		hole_depth = 1
 	board_height = board_height + hole_depth
 	radius = diameter / 2 + around
 	return s2.difference()(
@@ -103,19 +103,15 @@ def board(n: int, board_height=1, hole_depth=None):
 			s2.cylinder(board_height, radius, radius).translate([(n-1)*diameter, (n-1)*diameter, 0]),
 			s2.cylinder(board_height, radius, radius).translate([0, (n-1)*diameter, 0]),
 		),
-		s2.union()(
-			s2.translate([0, 0, board_height-hole_depth])(board_stones(n)),
-			s2.translate([0, 0, board_height-hole_depth-.3])(grid(n)),
-			s2.translate([0, 0, board_height-hole_depth-.3])(goban_hoshi(n)),
-		)
+		s2.translate([0, 0, board_height-hole_depth])(board_stones(n)),
 	)
 
 def grid(n: int):
 	w = 0.75
 	grid = []
 	for i in range(n):
-		grid.append(s2.translate([i*diameter - w/2, -w/2, 0])(s2.cube([w, (n-1)*diameter + w, 10])))
-		grid.append(s2.translate([-w/2, i*diameter-w/2, 0])(s2.cube([(n-1)*diameter, w, 10]))
+		grid.append(s2.translate([i*diameter - w/2, -w/2, 0])(s2.cube([w, (n-1)*diameter + w, 20])))
+		grid.append(s2.translate([-w/2, i*diameter-w/2, 0])(s2.cube([(n-1)*diameter, w, 20]))
 	)
 	return s2.union()(grid)
 
@@ -138,7 +134,12 @@ fn_header = "$fn = $preview ? 20 : 60;\n"
 
 for n in [9, 13, 19]:
 	s2.scad_render_to_file(board(n), f"{n}x{n}_board.scad", out_dir="scad", file_header=fn_header)
-	s2.scad_render_to_file(board(n, board_height=3), f"{n}x{n}_board_thick.scad", out_dir="scad", file_header=fn_header)
+	grid_and_hoshis = s2.union()(
+		grid(n),
+		goban_hoshi(n)
+	)
+	grid_and_hoshis = s2.intersection()(grid_and_hoshis, board(n))
+	s2.scad_render_to_file(grid_and_hoshis, f"{n}x{n}_goban_grid.scad", out_dir="scad", file_header=fn_header)
 for n in [13, 19]:
 	s2.scad_render_to_file(quarter_board(n), f"{n}x{n}_board_assemble.scad", out_dir="scad", file_header=fn_header)
 s2.scad_render_to_file(stone(), "stone.scad", out_dir="scad", file_header=fn_header)
