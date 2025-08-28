@@ -3,654 +3,329 @@ intersection() {
 	union() {
 		union() {
 			translate(v = [-0.375, -0.375, 0]) {
-				cube(size = [0.75, 80.75, 20]);
+				cube(size = [0.75, 76.75, 20]);
 			}
 			translate(v = [-0.375, -0.375, 0]) {
-				cube(size = [80, 0.75, 20]);
+				cube(size = [76, 0.75, 20]);
 			}
-			translate(v = [19.625, -0.375, 0]) {
-				cube(size = [0.75, 80.75, 20]);
+			translate(v = [18.625, -0.375, 0]) {
+				cube(size = [0.75, 76.75, 20]);
 			}
-			translate(v = [-0.375, 19.625, 0]) {
-				cube(size = [80, 0.75, 20]);
+			translate(v = [-0.375, 18.625, 0]) {
+				cube(size = [76, 0.75, 20]);
 			}
-			translate(v = [39.625, -0.375, 0]) {
-				cube(size = [0.75, 80.75, 20]);
+			translate(v = [37.625, -0.375, 0]) {
+				cube(size = [0.75, 76.75, 20]);
 			}
-			translate(v = [-0.375, 39.625, 0]) {
-				cube(size = [80, 0.75, 20]);
+			translate(v = [-0.375, 37.625, 0]) {
+				cube(size = [76, 0.75, 20]);
 			}
-			translate(v = [59.625, -0.375, 0]) {
-				cube(size = [0.75, 80.75, 20]);
+			translate(v = [56.625, -0.375, 0]) {
+				cube(size = [0.75, 76.75, 20]);
 			}
-			translate(v = [-0.375, 59.625, 0]) {
-				cube(size = [80, 0.75, 20]);
+			translate(v = [-0.375, 56.625, 0]) {
+				cube(size = [76, 0.75, 20]);
 			}
-			translate(v = [79.625, -0.375, 0]) {
-				cube(size = [0.75, 80.75, 20]);
+			translate(v = [75.625, -0.375, 0]) {
+				cube(size = [0.75, 76.75, 20]);
 			}
-			translate(v = [-0.375, 79.625, 0]) {
-				cube(size = [80, 0.75, 20]);
+			translate(v = [-0.375, 75.625, 0]) {
+				cube(size = [76, 0.75, 20]);
 			}
 		}
 		union();
 	}
 	difference() {
 		hull() {
-			cylinder(h = 2, r1 = 12.0, r2 = 12.0);
-			translate(v = [80, 0, 0]) {
-				cylinder(h = 2, r1 = 12.0, r2 = 12.0);
+			cylinder(h = 2, r1 = 11.5, r2 = 11.5);
+			translate(v = [76, 0, 0]) {
+				cylinder(h = 2, r1 = 11.5, r2 = 11.5);
 			}
-			translate(v = [80, 80, 0]) {
-				cylinder(h = 2, r1 = 12.0, r2 = 12.0);
+			translate(v = [76, 76, 0]) {
+				cylinder(h = 2, r1 = 11.5, r2 = 11.5);
 			}
-			translate(v = [0, 80, 0]) {
-				cylinder(h = 2, r1 = 12.0, r2 = 12.0);
+			translate(v = [0, 76, 0]) {
+				cylinder(h = 2, r1 = 11.5, r2 = 11.5);
 			}
 		}
 		translate(v = [0, 0, 1]) {
 			union() {
 				translate(v = [0, 0, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [20, 0, 1]) {
+				translate(v = [19, 0, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [40, 0, 1]) {
+				translate(v = [38, 0, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [60, 0, 1]) {
+				translate(v = [57, 0, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [80, 0, 1]) {
+				translate(v = [76, 0, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [0, 20, 1]) {
+				translate(v = [0, 19, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [20, 20, 1]) {
+				translate(v = [19, 19, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [40, 20, 1]) {
+				translate(v = [38, 19, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [60, 20, 1]) {
+				translate(v = [57, 19, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [80, 20, 1]) {
+				translate(v = [76, 19, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [0, 40, 1]) {
+				translate(v = [0, 38, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [20, 40, 1]) {
+				translate(v = [19, 38, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [40, 40, 1]) {
+				translate(v = [38, 38, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [60, 40, 1]) {
+				translate(v = [57, 38, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [80, 40, 1]) {
+				translate(v = [76, 38, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [0, 60, 1]) {
+				translate(v = [0, 57, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [20, 60, 1]) {
+				translate(v = [19, 57, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [40, 60, 1]) {
+				translate(v = [38, 57, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [60, 60, 1]) {
+				translate(v = [57, 57, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [80, 60, 1]) {
+				translate(v = [76, 57, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [0, 80, 1]) {
+				translate(v = [0, 76, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [20, 80, 1]) {
+				translate(v = [19, 76, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [40, 80, 1]) {
+				translate(v = [38, 76, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [60, 80, 1]) {
+				translate(v = [57, 76, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-				translate(v = [80, 80, 1]) {
+				translate(v = [76, 76, 1]) {
 					minkowski() {
-						translate(v = [0, 0, 2.6666666666666665]) {
-							union() {
-								difference() {
-									scale(v = [10.0, 10.0, 5.333333333333333]) {
-										sphere(r = 1);
-									}
-									translate(v = [0, 0, -8]) {
-										cylinder(h = 8, r1 = 20, r2 = 20);
-									}
-								}
-								difference() {
-									minkowski() {
-										cylinder(h = 0.01, r1 = 7.333333333333334, r2 = 7.333333333333334);
-										sphere(r = 2.6666666666666665);
-									}
-									cylinder(h = 8, r1 = 20, r2 = 20);
-								}
+						translate(v = [0, 0, 3.0]) {
+							minkowski() {
+								cylinder(center = true, h = 4, r1 = 8.5, r2 = 8.5);
+								sphere(r = 1);
 							}
 						}
 						sphere(r = 1);
 					}
 				}
-			}
+				/* stones */}
 		}
 	}
 }

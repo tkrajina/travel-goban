@@ -4,8 +4,8 @@ import os
 
 from typing import *
 
-stone_diameter = int(os.environ.get("DIAMETER", 19))
-stone_height = int(os.environ.get("HEIGHT", 8))
+stone_diameter = int(os.environ.get("DIAMETER", 18))
+stone_height = int(os.environ.get("HEIGHT", 6))
 
 around = 2
 
@@ -43,20 +43,11 @@ def hoshi_coodrinates(n: int) -> List[List[int]]:
 	return hoshi_coords
 
 def stone(diameter: float, height: float):
-	sphere_r = height / 3
-	return s2.union()(
-		s2.difference()(
-			s2.sphere(1).scale([diameter/2, diameter/2, height*2/3]),
-			s2.cylinder(height, diameter, diameter).translate([0, 0, -height])
-		),
-		s2.difference()(
-			s2.minkowski()(
-				s2.cylinder(0.01, diameter/2-sphere_r, diameter/2-sphere_r),
-				s2.sphere(sphere_r)
-			),
-			s2.cylinder(height, diameter, diameter)
-		)
-	).translate(0, 0, height/3)
+	corner_radius = 1
+	return s2.minkowski()(
+		s2.cylinder(height - corner_radius * 2, diameter/2 - corner_radius, diameter/2 - corner_radius, center=True),
+		s2.sphere(corner_radius)
+	).translate([0, 0, height/2])
 
 def hoshi(col: int, row: int, diameter: float, height: float):
 	return s2.translate([col*diameter, row*diameter, 0])(
@@ -79,7 +70,7 @@ def board_stones(n: int, diameter: float, height: float):
 					s2.sphere(1)
 				)
 			))
-	return s2.union()(stones)
+	return s2.union()(stones) + s2.scad_inline("/* stones */")
 
 def stones_grid(rows, cols, diameter: float):
 	d = diameter + 1
