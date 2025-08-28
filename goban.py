@@ -4,8 +4,8 @@ import os
 
 from typing import *
 
-diameter = int(os.environ.get("DIAMETER", 20))
-height = int(os.environ.get("HEIGHT", 8))
+stone_diameter = int(os.environ.get("DIAMETER", 19))
+stone_height = int(os.environ.get("HEIGHT", 8))
 
 around = 2
 
@@ -42,7 +42,7 @@ def hoshi_coodrinates(n: int) -> List[List[int]]:
 		hoshi_coords = hoshi3
 	return hoshi_coords
 
-def stone():
+def stone(diameter: float, height: float):
 	sphere_r = height / 3
 	return s2.union()(
 		s2.difference()(
@@ -58,30 +58,30 @@ def stone():
 		)
 	).translate(0, 0, height/3)
 
-def hoshi(col: int, row: int):
+def hoshi(col: int, row: int, diameter: float, height: float):
 	return s2.translate([col*diameter, row*diameter, 0])(
 		s2.cylinder(20, 1.5, 1.5)
 	)
 
-def goban_hoshi(n: int):
+def goban_hoshi(n: int, diameter: float, height: float):
 	all_hoshis: List[s2.OpenSCADObject] = []
 	for coords in hoshi_coodrinates(n):
-		all_hoshis.append(hoshi(coords[0], coords[1]))
+		all_hoshis.append(hoshi(coords[0], coords[1], diameter, height))
 	return s2.union()(all_hoshis)
 
-def board_stones(n: int):
+def board_stones(n: int, diameter: float, height: float):
 	stones = []
 	for row in range(n):
 		for col in range(n):
 			stones.append(s2.translate([col*diameter, row*diameter, 1])(
 				s2.minkowski()(
-					stone(),
+					stone(diameter, height),
 					s2.sphere(1)
 				)
 			))
 	return s2.union()(stones)
 
-def stones_grid(rows, cols):
+def stones_grid(rows, cols, diameter: float):
 	d = diameter + 1
 	stones = []
 	for row in range(rows):
@@ -91,7 +91,7 @@ def stones_grid(rows, cols):
 			stones.append(s2.translate([row*d+(h if col%2==0 else -h), col*v, 0])(stone()))
 	return s2.union()(stones)
 
-def board(n: int, board_height=1, hole_depth=None):
+def board(n: int, diameter: float, height: float, board_height=1, hole_depth=None):
 	if not hole_depth:
 		hole_depth = 1
 	board_height = board_height + hole_depth
@@ -103,10 +103,10 @@ def board(n: int, board_height=1, hole_depth=None):
 			s2.cylinder(board_height, radius, radius).translate([(n-1)*diameter, (n-1)*diameter, 0]),
 			s2.cylinder(board_height, radius, radius).translate([0, (n-1)*diameter, 0]),
 		),
-		s2.translate([0, 0, board_height-hole_depth])(board_stones(n)),
+		s2.translate([0, 0, board_height-hole_depth])(board_stones(n, diameter, height)),
 	)
 
-def grid(n: int):
+def grid(n: int, diameter: float, height: float):
 	w = 0.75
 	grid = []
 	for i in range(n):
@@ -115,9 +115,9 @@ def grid(n: int):
 	)
 	return s2.union()(grid)
 
-def quarter_board(n: int):
+def quarter_board(n: int, diameter: float, height: float):
 	side = (n*diameter+2*around)/2
-	res = board(n, board_height=3).translate([diameter/2+around, diameter/2+around, 0]) * s2.cube([side, side, 100])
+	res = board(n, stone_diameter, stone_height, board_height=3).translate([diameter/2+around, diameter/2+around, 0]) * s2.cube([side, side, 100])
 	return res \
 		+ hook().rotate([0, 0, 90]).translate([side, side/2, 0]) \
 		- s2.minkowski()(hook(), s2.sphere(.4)).translate([side/2, side, 0]) \
@@ -132,16 +132,16 @@ def hook():
 
 fn_header = "$fn = $preview ? 20 : 60;\n"
 
-for n in [9, 13, 19]:
-	s2.scad_render_to_file(board(n), f"{n}x{n}_board.scad", out_dir="scad", file_header=fn_header)
+for n in [5]:
+	s2.scad_render_to_file(board(n, stone_diameter+1, stone_height), f"{n}x{n}_board.scad", out_dir="scad", file_header=fn_header)
 	grid_and_hoshis = s2.union()(
-		grid(n),
-		goban_hoshi(n)
+		grid(n, stone_diameter+1, stone_height),
+		goban_hoshi(n, stone_diameter, stone_height)
 	)
-	grid_and_hoshis = s2.intersection()(grid_and_hoshis, board(n))
-	s2.scad_render_to_file(grid_and_hoshis, f"{n}x{n}_goban_grid.scad", out_dir="scad", file_header=fn_header)
-for n in [13, 19]:
-	s2.scad_render_to_file(quarter_board(n), f"{n}x{n}_board_assemble.scad", out_dir="scad", file_header=fn_header)
-s2.scad_render_to_file(stone(), "stone.scad", out_dir="scad", file_header=fn_header)
+	grid_and_hoshis = s2.intersection()(grid_and_hoshis, board(n, stone_diameter+1, stone_height))
+	s2.scad_render_to_file(grid_and_hoshis, f"{n}x{n}_board_grid.scad", out_dir="scad", file_header=fn_header)
+# for n in [13, 19]:
+# 	s2.scad_render_to_file(quarter_board(n, stone_diameter, stone_height), f"{n}x{n}_board_assemble.scad", out_dir="scad", file_header=fn_header)
+s2.scad_render_to_file(stone(stone_diameter, stone_height), "stone.scad", out_dir="scad", file_header=fn_header)
 # for row, col in [[4, 14], [stones_grid_cols, stones_grid_rows]]:
 # 	s2.scad_render_to_file(stones_grid(row, col), f"stones_grid_{row}x{col}.scad", out_dir="scad", file_header=fn_header)
