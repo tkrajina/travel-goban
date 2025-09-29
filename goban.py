@@ -72,19 +72,16 @@ def board_stones(n: int, diameter: float, height: float, space_between: float):
 					s2.sphere(.5)
 				)
 			))
-	return s2.union()(stones) + s2.scad_inline("/* stones */")
+	return s2.union()(stones).translate([0, 0, -.5]) + s2.scad_inline("/* stones */")
 
-def stones_grid(n: int, diameter: float):
-	d = diameter + 1
+def stones_grid(rows, cols: int):
+	d = stone_diameter + 1
 	stones = []
-	counter = 0
-	for row in range(n):
-		for col in range(n):
+	for row in range(rows):
+		for col in range(cols):
 			v = (d**2 - (d/2)**2)**0.5
 			h = d / 4
-			if counter < 0.5 * n * n:
-				stones.append(s2.translate([row*d+(h if col%2==0 else -h), col*v, 0])(stone(stone_diameter, stone_height)))
-			counter += 1
+			stones.append(s2.translate([row*d+(h if col%2==0 else -h), col*v, 0])(stone(stone_diameter, stone_height)))
 	return s2.union()(stones)
 
 def board(n: int, diameter: float, height: float, board_height=1, hole_depth=None):
@@ -103,7 +100,7 @@ def board(n: int, diameter: float, height: float, board_height=1, hole_depth=Non
 	)
 
 def grid(n: int, diameter: float, height: float):
-	w = 0.75
+	w = 0.5
 	grid = []
 	for i in range(n):
 		grid.append(s2.translate([i*(diameter + space_between_stones) - w/2, -w/2, 0])(s2.cube([w, (n-1)*(diameter + space_between_stones) + w, 20])))
@@ -136,7 +133,7 @@ for n in [9]:
 	)
 	grid_and_hoshis = s2.intersection()(grid_and_hoshis, board(n, stone_diameter, stone_height))
 	s2.scad_render_to_file(grid_and_hoshis, f"{n}x{n}_board_grid.scad", out_dir="scad", file_header=fn_header)
-	s2.scad_render_to_file(stones_grid(n, stone_diameter), f"stones_grid_{n}x{n}.scad", out_dir="scad", file_header=fn_header)
 # for n in [13, 19]:
 # 	s2.scad_render_to_file(quarter_board(n, stone_diameter, stone_height), f"{n}x{n}_board_assemble.scad", out_dir="scad", file_header=fn_header)
 s2.scad_render_to_file(stone(stone_diameter, stone_height), "stone.scad", out_dir="scad", file_header=fn_header)
+s2.scad_render_to_file(stones_grid(4, 14), f"stones_grid_{4}x{14}.scad", out_dir="scad", file_header=fn_header)
