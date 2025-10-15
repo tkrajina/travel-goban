@@ -84,9 +84,9 @@ def stones_grid(rows, cols: int):
 			stones.append(s2.translate([row*d+(h if col%2==0 else -h), col*v, 0])(stone(stone_diameter, stone_height)))
 	return s2.union()(stones)
 
-def board(n: int, diameter: float, height: float, board_height=1, hole_depth=None):
+def board(n: int, diameter: float, height: float, board_height=1.5, hole_depth=None):
 	if not hole_depth:
-		hole_depth = 1
+		hole_depth = .5
 	board_height = board_height + hole_depth
 	radius = diameter / 2 + around
 	return s2.difference()(

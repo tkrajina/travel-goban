@@ -1,18 +1,18 @@
 $fn = $preview ? 20 : 60;
 difference() {
 	hull() {
-		cylinder(h = 2, r1 = 11.5, r2 = 11.5);
+		cylinder(h = 2.0, r1 = 11.5, r2 = 11.5);
 		translate(v = [160, 0, 0]) {
-			cylinder(h = 2, r1 = 11.5, r2 = 11.5);
+			cylinder(h = 2.0, r1 = 11.5, r2 = 11.5);
 		}
 		translate(v = [160, 160, 0]) {
-			cylinder(h = 2, r1 = 11.5, r2 = 11.5);
+			cylinder(h = 2.0, r1 = 11.5, r2 = 11.5);
 		}
 		translate(v = [0, 160, 0]) {
-			cylinder(h = 2, r1 = 11.5, r2 = 11.5);
+			cylinder(h = 2.0, r1 = 11.5, r2 = 11.5);
 		}
 	}
-	translate(v = [0, 0, 1]) {
+	translate(v = [0, 0, 1.5]) {
 		union() {
 			translate(v = [0, 0, -0.5]) {
 				union() {
