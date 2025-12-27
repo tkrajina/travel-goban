@@ -5,6 +5,8 @@ import os
 from typing import *
 
 space_between_stones = 1
+board_height=1.5
+hole_depth=.5
 
 stone_diameter = int(os.environ.get("DIAMETER", 19))
 stone_height = int(os.environ.get("HEIGHT", 4))
@@ -84,19 +86,17 @@ def stones_grid(rows, cols: int):
 			stones.append(s2.translate([row*d+(h if col%2==0 else -h), col*v, 0])(stone(stone_diameter, stone_height)))
 	return s2.union()(stones)
 
-def board(n: int, diameter: float, height: float, board_height=1.5, hole_depth=None):
-	if not hole_depth:
-		hole_depth = .5
-	board_height = board_height + hole_depth
+def board(n: int, diameter: float, height: float):
+	h = board_height + hole_depth
 	radius = diameter / 2 + around
 	return s2.difference()(
 		s2.hull()(
-			s2.cylinder(board_height, radius, radius),
-			s2.cylinder(board_height, radius, radius).translate([(n-1)*(diameter + space_between_stones), 0, 0]),
-			s2.cylinder(board_height, radius, radius).translate([(n-1)*(diameter + space_between_stones), (n-1)*(diameter + space_between_stones), 0]),
-			s2.cylinder(board_height, radius, radius).translate([0, (n-1)*(diameter + space_between_stones), 0]),
+			s2.cylinder(h, radius, radius),
+			s2.cylinder(h, radius, radius).translate([(n-1)*(diameter + space_between_stones), 0, 0]),
+			s2.cylinder(h, radius, radius).translate([(n-1)*(diameter + space_between_stones), (n-1)*(diameter + space_between_stones), 0]),
+			s2.cylinder(h, radius, radius).translate([0, (n-1)*(diameter + space_between_stones), 0]),
 		),
-		s2.translate([0, 0, board_height-hole_depth])(board_stones(n, diameter, height, space_between=space_between_stones)),
+		s2.translate([0, 0, h-hole_depth])(board_stones(n, diameter, height, space_between=space_between_stones)),
 	)
 
 def grid(n: int, diameter: float, height: float):
@@ -110,7 +110,7 @@ def grid(n: int, diameter: float, height: float):
 
 def quarter_board(n: int, diameter: float, height: float):
 	side = (n*diameter+2*around)/2
-	res = board(n, stone_diameter, stone_height, board_height=3).translate([diameter/2+around, diameter/2+around, 0]) * s2.cube([side, side, 100])
+	res = board(n, stone_diameter, stone_height, h=3).translate([diameter/2+around, diameter/2+around, 0]) * s2.cube([side, side, 100])
 	return res \
 		+ hook().rotate([0, 0, 90]).translate([side, side/2, 0]) \
 		- s2.minkowski()(hook(), s2.sphere(.4)).translate([side/2, side, 0]) \
@@ -131,7 +131,8 @@ for n in [9]:
 		grid(n, stone_diameter, stone_height),
 		goban_hoshi(n, stone_diameter, stone_height)
 	)
-	grid_and_hoshis = s2.intersection()(grid_and_hoshis, board(n, stone_diameter, stone_height))
+	# grid_and_hoshis = s2.intersection()(grid_and_hoshis, board(n, stone_diameter, stone_height))
+	grid_and_hoshis -= s2.cube([500, 500, 500]).translate([-10, -10, board_height - .5])
 	s2.scad_render_to_file(grid_and_hoshis, f"{n}x{n}_board_grid.scad", out_dir="scad", file_header=fn_header)
 # for n in [13, 19]:
 # 	s2.scad_render_to_file(quarter_board(n, stone_diameter, stone_height), f"{n}x{n}_board_assemble.scad", out_dir="scad", file_header=fn_header)
